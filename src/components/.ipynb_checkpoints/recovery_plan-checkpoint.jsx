@@ -26,8 +26,7 @@ const RecoveryPlan = () => {
               </div>
               <div className="bg-white p-4 rounded-b-lg border border-red-200 shadow-sm">
                 <p className="mb-4 text-gray-700">
-                  Recovery mode is activated when specific thresholds are breached. Define your triggers 
-                  below to create a systematic approach to drawdown recovery.
+                  Recovery mode is activated when specific thresholds are breached.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-2">
@@ -152,7 +151,7 @@ const RecoveryPlan = () => {
                     <h4 className="font-semibold text-orange-800 mb-2">Position Sizing Rules:</h4>
                     <ul className="list-disc pl-5 text-gray-700">
                       <li className="mb-1">Maximum contracts limited to 50% of normal calculation</li>
-                      <li className="mb-1">Each failed recovery attempt reduces size by additional 25%</li>
+                      <li className="mb-1">Each failed recovery attempt reduces size by additional 25% or switch to cheaper instrument</li>
                       <li className="mb-1">Return to normal sizing only after <input 
                           type="text" 
                           className="w-10 text-center inline-block border border-orange-300 rounded"
@@ -160,6 +159,7 @@ const RecoveryPlan = () => {
                           onChange={(e) => setWinStreak(e.target.value)}
                         /> consecutive winning trades</li>
                       <li>Reset to minimum position sizing after cooling off period</li>
+                      <li>Reset to normal position sizing the following day</li>
                     </ul>
                   </div>
                 </div>
@@ -291,19 +291,6 @@ const RecoveryPlan = () => {
                         <strong>Contact accountability partner</strong> if recovery plan fails
                       </li>
                     </ul>
-                  </div>
-                  
-                  <div className="bg-white p-3 border rounded-lg mb-6">
-                    <h4 className="font-semibold text-indigo-800 mb-2">Journal Template For Losses:</h4>
-                    <textarea
-                      className="w-full p-2 border rounded h-32 text-gray-600"
-                      placeholder="Trade details: 
-1. What happened objectively?
-2. Why did I take this trade?
-3. Did I follow my plan?
-4. What can I learn from this?
-5. How will I apply this lesson?"
-                    ></textarea>
                   </div>
                 </div>
                 

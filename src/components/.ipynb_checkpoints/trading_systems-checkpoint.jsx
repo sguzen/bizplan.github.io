@@ -94,100 +94,65 @@ const TradingSystems = () => {
           <div className="p-6">
             <div className="mb-8">
               <div className="bg-indigo-100 p-3 rounded-t-lg border-l-4 border-indigo-600">
-                <h2 className="text-xl font-bold text-indigo-800">PRIMARY SYSTEMS TABLE</h2>
-              </div>
-              <div className="bg-white p-4 rounded-b-lg border border-indigo-200 shadow-sm overflow-x-auto">
-                <table className="min-w-full border-collapse border border-gray-300">
-                  <thead className="bg-indigo-100">
-                    <tr>
-                      <th className="border border-gray-300 p-2">SYSTEM</th>
-                      <th className="border border-gray-300 p-2">MARKET CONDITIONS</th>
-                      <th className="border border-gray-300 p-2">ACTIVATION CRITERIA</th>
-                      <th className="border border-gray-300 p-2">RISK %</th>
-                      <th className="border border-gray-300 p-2">TARGET METHOD</th>
-                      <th className="border border-gray-300 p-2">ACTIVE</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {systems.map((system, index) => (
-                      <tr key={index} className={index % 2 === 0 ? '' : 'bg-gray-50'}>
-                        <td className="border border-gray-300 p-2 font-semibold">{system.name}</td>
-                        <td className="border border-gray-300 p-2">{system.marketConditions}</td>
-                        <td className="border border-gray-300 p-2">{system.activationCriteria}</td>
-                        <td className="border border-gray-300 p-2">{system.riskPerTrade}</td>
-                        <td className="border border-gray-300 p-2">{system.targetMethod}</td>
-                        <td className="border border-gray-300 p-2 text-center">
-                          <input 
-                            type="checkbox" 
-                            className="form-checkbox h-5 w-5 text-indigo-600 rounded" 
-                            checked={system.active}
-                            onChange={() => toggleSystemActive(index)}
-                          />
-                        </td>
-                      </tr>
-                    ))}
-                    {customSystems.map((system, index) => (
-                      <tr key={`custom-${index}`} className="bg-blue-50">
-                        <td className="border border-gray-300 p-2">
-                          <input
-                            type="text"
-                            className="w-full p-1 border rounded"
-                            placeholder="Custom System"
-                            value={system.name}
-                            onChange={(e) => updateCustomSystem(index, 'name', e.target.value)}
-                          />
-                        </td>
-                        <td className="border border-gray-300 p-2">
-                          <input
-                            type="text"
-                            className="w-full p-1 border rounded"
-                            placeholder="Market Conditions"
-                            value={system.marketConditions}
-                            onChange={(e) => updateCustomSystem(index, 'marketConditions', e.target.value)}
-                          />
-                        </td>
-                        <td className="border border-gray-300 p-2">
-                          <input
-                            type="text"
-                            className="w-full p-1 border rounded"
-                            placeholder="Activation Criteria"
-                            value={system.activationCriteria}
-                            onChange={(e) => updateCustomSystem(index, 'activationCriteria', e.target.value)}
-                          />
-                        </td>
-                        <td className="border border-gray-300 p-2">
-                          <input
-                            type="text"
-                            className="w-full p-1 border rounded"
-                            placeholder="Risk %"
-                            value={system.riskPerTrade}
-                            onChange={(e) => updateCustomSystem(index, 'riskPerTrade', e.target.value)}
-                          />
-                        </td>
-                        <td className="border border-gray-300 p-2">
-                          <input
-                            type="text"
-                            className="w-full p-1 border rounded"
-                            placeholder="Target Method"
-                            value={system.targetMethod}
-                            onChange={(e) => updateCustomSystem(index, 'targetMethod', e.target.value)}
-                          />
-                        </td>
-                        <td className="border border-gray-300 p-2 text-center">
-                          <input 
-                            type="checkbox" 
-                            className="form-checkbox h-5 w-5 text-indigo-600 rounded" 
-                            checked={system.active}
-                            onChange={() => toggleSystemActive(index, true)}
-                          />
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
+                
+                        <h2 className="text-2xl font-bold text-blue-700 mb-4">System Activation Decision Matrix</h2>
+                        <div className="bg-white p-4 rounded-b-lg border border-blue-200 shadow-sm">
+                          <table className="min-w-full bg-white border border-gray-200">
+                            <thead>
+                              <tr className="bg-blue-100">
+                                <th className="border px-4 py-2">System</th>
+                                <th className="border px-4 py-2">Range 1</th>
+                                <th className="border px-4 py-2">Range 2</th>
+                                <th className="border px-4 py-2">DWP</th>
+                                <th className="border px-4 py-2">DNP</th>
+                                <th className="border px-4 py-2">High/Low Already In</th>
+                                <th className="border px-4 py-2">Contradicting Sessions</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td className="border px-4 py-2 font-medium">9:30 Trade</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                              </tr>
+                              <tr className="bg-gray-50">
+                                <td className="border px-4 py-2 font-medium">High/Low Day</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-red-100 text-center">OFF*</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                              </tr>
+                              <tr>
+                                <td className="border px-4 py-2 font-medium">P12 Trade</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-red-100 text-center">OFF</td>
+                              </tr>
+                              <tr className="bg-gray-50">
+                                <td className="border px-4 py-2 font-medium">Captain Back Test</td>
+                                <td className="border px-4 py-2 bg-red-100 text-center">OFF</td>
+                                <td className="border px-4 py-2 bg-red-100 text-center">OFF</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-green-100 text-center">ON</td>
+                                <td className="border px-4 py-2 bg-red-100 text-center">OFF</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div className="mt-2 text-sm text-gray-600">
+                            <p>* OFF if both are set during statistical time</p>
+                          </div>
+                        </div>
+ </div> </div>
             <div className="mb-8">
               <div className="bg-blue-100 p-3 rounded-t-lg border-l-4 border-blue-600">
                 <h2 className="text-xl font-bold text-blue-800">DETAILED SYSTEM PARAMETERS</h2>
@@ -216,11 +181,22 @@ const TradingSystems = () => {
                     <h3 className="font-bold text-blue-800 mb-3">9:30 TRADE SYSTEM</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       <div>
+                          <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Description</h4>
+                          <p className="text-gray-600">Directional breakout strategy based on the opening 9:30 candle, the anchor for the trading day.</p>
+                        </div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Activation</h4>
                           <p className="text-gray-600">Always ON at 9:30 market open</p>
                         </div>
-                        <div className="mb-3">
+                          <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Time Frame</h4>
+                          <p className="text-gray-600">9:30-9:44</p>
+                        </div>
+                        
+                      </div>
+                      <div>
+                          <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Entry</h4>
                           <p className="text-gray-600">Based on opening candle direction</p>
                         </div>
@@ -228,8 +204,6 @@ const TradingSystems = () => {
                           <h4 className="font-semibold text-gray-700">Stop</h4>
                           <p className="text-gray-600">Opposite end of opening candle</p>
                         </div>
-                      </div>
-                      <div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Targets</h4>
                           <ul className="list-disc pl-5 text-gray-600">
@@ -238,22 +212,9 @@ const TradingSystems = () => {
                             <li>Extended: 9:44 timeframe</li>
                           </ul>
                         </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-700">Position sizing</h4>
-                          <ul className="list-disc pl-5 text-gray-600">
-                            <li>2.5%: Contradicting market conditions</li>
-                            <li>5%: Normal/unclear conditions</li>
-                            <li>7-10%: Strong alignment with daily profile</li>
-                          </ul>
-                        </div>
+                        
                       </div>
-                      <div className="lg:col-span-2">
-                        <h4 className="font-semibold text-gray-700 mb-1">Notes</h4>
-                        <textarea
-                          className="w-full p-2 border rounded h-24 text-gray-600"
-                          placeholder="Add your own notes about this system..."
-                        ></textarea>
-                      </div>
+                      
                     </div>
                   </div>
                 )}
@@ -263,40 +224,39 @@ const TradingSystems = () => {
                     <h3 className="font-bold text-green-800 mb-3">HIGH DAY / LOW DAY SYSTEM</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       <div>
+                          <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Description</h4>
+                          <p className="text-gray-600">Reversal style trading capturing statistical high/low of day zones.</p>
+                        </div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Activation</h4>
-                          <p className="text-gray-600">ON when expecting false session</p>
+                          <p className="text-gray-600">ON when HOD/LOD zone is tapped during HOD/LOD statistical time according to the daily profiler.</p>
                         </div>
-                        <div className="mb-3">
+                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Entry</h4>
-                          <p className="text-gray-600">At statistical high/low zones with confirmation</p>
+                          <p className="text-gray-600">At statistical high/low zones with confirmation. Any entry model could be used.</p>
+                              <li>Enter as price approaches high/low day zone</li>
+                <li>Start with small position (micros)</li>
+                <li>Add on confirmations (9:45-10:00 reversal)</li>
+                <li>Slam with minis when 10:00 hour confirms reversal</li>
                         </div>
+                      </div>
+                      <div>
+                         
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Stop</h4>
                           <p className="text-gray-600">10 basis points beyond zone</p>
                         </div>
-                      </div>
-                      <div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Target</h4>
                           <p className="text-gray-600">75% of New York Distro</p>
                         </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-700">Position sizing</h4>
-                          <ul className="list-disc pl-5 text-gray-600">
-                            <li>2.5%: Early entry without confirmation</li>
-                            <li>5%: Normal entry with some confirmation</li>
-                            <li>7-10%: Perfect setup with all confirmations</li>
-                          </ul>
+                        <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Key Notes</h4>
+                          <p className="text-gray-600">This is a reversal style setup - ease in with micros, add to position when reversal confirms. Highest probability occurs during 9:30-9:45 and 9:45-10:00.</p>
                         </div>
                       </div>
-                      <div className="lg:col-span-2">
-                        <h4 className="font-semibold text-gray-700 mb-1">Notes</h4>
-                        <textarea
-                          className="w-full p-2 border rounded h-24 text-gray-600"
-                          placeholder="Add your own notes about this system..."
-                        ></textarea>
-                      </div>
+                      
                     </div>
                   </div>
                 )}
@@ -306,54 +266,76 @@ const TradingSystems = () => {
                     <h3 className="font-bold text-purple-800 mb-3">P12 TRADE SYSTEM</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       <div>
+                          <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Description</h4>
+                          <p className="text-gray-600">Continuation and breakout trading based on previous 12-hour price levels.</p>
+                        </div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Activation</h4>
                           <p className="text-gray-600">Based on P12 analysis and price location</p>
                         </div>
+                          <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Market Conditions</h4>
+                          <p className="text-gray-600">Flexible - can work in all conditions but trade differently in each.</p>
+                        </div>
+                           <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Time Frame</h4>
+                          <p className="text-gray-600">Can be traded 6:00-16:00 (flexible)</p>
+                        </div>
                         <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Scenario Based Trading</h4>
+                          <p className="text-gray-600">Scenario 5 (Range): Trade between high and low</p>
+                            <p className="text-gray-600">Scenarios 1-4: Trade breakouts and continuations</p>
+                        </div>
+                      </div>
+                      <div>
+                           <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Entry</h4>
                           <p className="text-gray-600">At P12 levels with confirmation</p>
+                               <ul className="list-disc pl-5 mb-3">
+                <li><b>Alert:</b> Price approaches P12 high/mid/low</li>
+                <li><b>Confirmation:</b> Close above/below level + hourly quarter confirmation</li>
+                <li>Breakout: Trade in direction of breakout</li>
+                <li>Rejection: Trade bounces off levels</li>
+                <li>Look above/below and fill: Reversal at levels</li>
+              </ul>
                         </div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Stop</h4>
                           <p className="text-gray-600">Beyond invalidation level (varies by setup)</p>
                         </div>
-                      </div>
-                      <div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Target</h4>
                           <p className="text-gray-600">25-75 basis points based on conditions</p>
                         </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-700">Position sizing</h4>
-                          <ul className="list-disc pl-5 text-gray-600">
-                            <li>2.5%: Counter-trend or unclear conditions</li>
-                            <li>5%: Normal conditions</li>
-                            <li>7-10%: Strong trend with multiple confirmations</li>
-                          </ul>
-                        </div>
+                       
                       </div>
-                      <div className="lg:col-span-2">
-                        <h4 className="font-semibold text-gray-700 mb-1">Notes</h4>
-                        <textarea
-                          className="w-full p-2 border rounded h-24 text-gray-600"
-                          placeholder="Add your own notes about this system..."
-                        ></textarea>
-                      </div>
+                      
                     </div>
                   </div>
                 )}
 
                 {activeTab === 'Captain Back Test' && (
                   <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
-                    <h3 className="font-bold text-orange-800 mb-3">CAPTAIN BACK TEST</h3>
+                    <h3 className="font-bold text-orange-800 mb-3">CAPTAIN BACKTEST</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       <div>
+                           <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Description</h4>
+                          <p className="text-gray-600">Trend following strategy that front-runs New York 2 session and targets end-of-day high/low.</p>
+                        </div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Activation</h4>
                           <p className="text-gray-600">ON in trending market (DWP/DNP)</p>
                         </div>
-                        <div className="mb-3">
+                          <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Time Frame</h4>
+                          <p className="text-gray-600">After 10:00 AM, entries 10:30-11:30 AM</p>
+                        </div>
+                        
+                      </div>
+                      <div>
+                          <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Entry</h4>
                           <p className="text-gray-600">After H4 high/low breach with pullback</p>
                         </div>
@@ -361,28 +343,20 @@ const TradingSystems = () => {
                           <h4 className="font-semibold text-gray-700">Stop</h4>
                           <p className="text-gray-600">25 basis points or previous structure</p>
                         </div>
-                      </div>
-                      <div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Target</h4>
-                          <p className="text-gray-600">50 basis points or extended for high/low day</p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-700">Position sizing</h4>
-                          <ul className="list-disc pl-5 text-gray-600">
-                            <li>2.5%: Limited remaining Distro</li>
-                            <li>5%: Normal conditions</li>
-                            <li>7-10%: Abundant Distro with strong trend</li>
+                          <ul className="list-disc pl-5 mb-3">
+                            <li>Minimum: 50 basis points</li>
+                            <li>Preferred: Ride to high/low of day (15:00-16:00)</li>
+                            <li>Base on daily DRO remaining</li>
                           </ul>
                         </div>
+                        <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Key Notes</h4>
+                          <p className="text-gray-600">Only turn ON in trending days with sufficient daily DRO remaining. Never trade against H4 breakout direction.</p>
+                        </div>
                       </div>
-                      <div className="lg:col-span-2">
-                        <h4 className="font-semibold text-gray-700 mb-1">Notes</h4>
-                        <textarea
-                          className="w-full p-2 border rounded h-24 text-gray-600"
-                          placeholder="Add your own notes about this system..."
-                        ></textarea>
-                      </div>
+                     
                     </div>
                   </div>
                 )}
@@ -392,40 +366,44 @@ const TradingSystems = () => {
                     <h3 className="font-bold text-teal-800 mb-3">QUARTERS TRADE SYSTEM</h3>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                       <div>
+                           <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Description</h4>
+                          <p className="text-gray-600">Supplementary system for precision entries and cash flow trading based on hourly price action.</p>
+                        </div>
                         <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Activation</h4>
-                          <p className="text-gray-600">All market conditions</p>
+                          <p className="text-gray-600">Best in range-bound markets but can supplement all other systems.</p>
                         </div>
-                        <div className="mb-3">
+                       <div className="mb-3">
                           <h4 className="font-semibold text-gray-700">Entry</h4>
-                          <p className="text-gray-600">Hourly quarter breakouts (Q1-Q4)</p>
-                        </div>
-                        <div className="mb-3">
-                          <h4 className="font-semibold text-gray-700">Stop</h4>
-                          <p className="text-gray-600">Below Q1 low (for longs) or above Q1 high (for shorts)</p>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="mb-3">
-                          <h4 className="font-semibold text-gray-700">Target</h4>
-                          <p className="text-gray-600">Quarter to quarter movement (Q1→Q2→Q3→Q4)</p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-700">Position sizing</h4>
-                          <ul className="list-disc pl-5 text-gray-600">
-                            <li>2.5%: Contradicting 3-hour structure</li>
-                            <li>5%: Normal conditions</li>
-                            <li>7-10%: Strong alignment with 3-hour quarters</li>
+                          <ul className="list-disc pl-5 mb-3">
+                            <li><b>Q1 Breaks:</b> Enter when price breaks above/below Q1 high/low, extra confirmation with previous hour high/low taken</li>
+                            <li><b>0-5 Box Breakouts:</b> Enter when price breaks key reaction box</li>
+                            <li><b>Previous Hour 50%:</b> Enter on rejection/breakout of 50% level</li>
+                            <li><b>Three-Hour Structure:</b> 9-10-11, 12-13-14 hour patterns</li>
                           </ul>
                         </div>
                       </div>
-                      <div className="lg:col-span-2">
-                        <h4 className="font-semibold text-gray-700 mb-1">Notes</h4>
-                        <textarea
-                          className="w-full p-2 border rounded h-24 text-gray-600"
-                          placeholder="Add your own notes about this system..."
-                        ></textarea>
+                      <div>
+                           
+                        <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Stop</h4>
+                          <p className="text-gray-600">Previous hour 50% or Q1 low/high, 0-5 box low/high (depending on direction)</p>
+                        </div>
+                        <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Target</h4>
+                          <ul className="list-disc pl-5 mb-3">
+                                <li>Cash Flow: 10-15 basis points (typical)</li>
+                                <li>In trending conditions: To next hourly quarter</li>
+                                <li>In DWP/DMP: Can extend to 3-hour structure target</li>
+                              </ul>
+                        </div>
+                       <div className="mb-3">
+                          <h4 className="font-semibold text-gray-700">Key Notes</h4>
+                          <p className="text-gray-600">Excellent for supplementing other strategies or recovery plans. The 10:00, 11:00, and 13:00-14:00 quarters are particularly reliable for recovery plans after losses.</p>
+                        </div>
                       </div>
+                      
                     </div>
                   </div>
                 )}
@@ -528,6 +506,7 @@ const TradingSystems = () => {
         </div>
       </div>
     </div>
+
   );
 };
 

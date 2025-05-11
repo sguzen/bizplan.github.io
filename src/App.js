@@ -4,7 +4,8 @@ import FinancialAssessment from './components/financial_assessment';
 import MarketAnalysis from './components/four_steps';
 import RecoveryPlan from './components/recovery_plan';
 import RiskManagementCalculator from './components/risk_management';
-import TradingSystems from './components/trading_systems.jsx';
+import TradingSystems from './components/trading_systems';
+import TradingPerformanceTracker from './components/performance_tracker';
 
 function App() {
   return (
@@ -17,18 +18,18 @@ function App() {
           <Route path="/recovery-plan" element={<RecoveryPlan />} />
         <Route path="/risk-management" element={<RiskManagementCalculator />} />
         <Route path="/daily-profiler" element={<TradingSystems />} />
+        <Route path="/performance-tracker" element={<TradingPerformanceTracker />} />
         </Routes>
       </div>
     </Router>
   );
 }
 
-// Create a Home component that renders your index page
 function Home() {
   return (
     <div>
       <div className="intro">
-        <p>Something motivational</p>
+        <p>Believe in yourself and remember that this is a marathon, not a sprint!</p>
       </div>
 
       <div className="section">
@@ -36,36 +37,38 @@ function Home() {
         <ul>
           <li>
             <strong><Link to="/financial-assessment">Financial Assessment</Link></strong>
-            <span className="tag">tag</span>
-            <p>Tool for identifying the <i>WHY</i>.</p>
+            <span className="tag">Tool</span>
+            <p>Identifying the <i>WHY</i>.</p>
           </li>
           <li>
             <strong><Link to="/risk-management">Risk Management and Position Size Calculator</Link></strong>
-            <span className="tag">tag</span>
+              <span className="tag">Tool</span>
+              <p>How to position</p>    
           </li>
+      
       <li>
             <strong><Link to="/recovery-plan">Recovery Plan</Link></strong>
-            <span className="tag">tag</span>
+            <span className="tag">Tool</span>
+      <p>Losses are inevitable. How to recover.</p>
           </li>
         </ul>
       </div>
             
       <div className="section">
-        <h2>Market Analysis Tools</h2>
-        {/* Use Link components from React Router instead of <a> tags */}
+        <h2>Game on</h2>
         <ul>
           <li>
-            <Link to="/four-steps">Daily Profiler</Link>
+            <strong><Link to="/four-steps">Market Analysis</Link></strong>
             <span className="tag">Analysis</span>
+          <p>4 steps + p12</p>
           </li>
           <li>
-            <Link to="/daily-profiler">Trading Systems</Link>
+           <strong> <Link to="/daily-profiler">Trading Systems</Link></strong>
             <span className="tag">Analysis</span>
+          <p>The game</p>
           </li>
         </ul>
       </div>
-      
-      {/* More sections... */}
     </div>
   );
 }
