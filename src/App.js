@@ -8,7 +8,9 @@ import TradingSystems from './components/trading_systems';
 import TradingPerformanceTracker from './components/performance_tracker';
 
 function App() {
-     const basename = process.env.PUBLIC_URL;
+  // This will be "/bizplan.github.io" in production and "/" in development
+  const basename = process.env.PUBLIC_URL;
+  
   return (
     <Router basename={basename}>
       <div className="App">
@@ -17,9 +19,9 @@ function App() {
           <Route path="/financial-assessment" element={<FinancialAssessment />} />
           <Route path="/four-steps" element={<MarketAnalysis />} />
           <Route path="/recovery-plan" element={<RecoveryPlan />} />
-        <Route path="/risk-management" element={<RiskManagementCalculator />} />
-        <Route path="/daily-profiler" element={<TradingSystems />} />
-        <Route path="/performance-tracker" element={<TradingPerformanceTracker />} />
+          <Route path="/risk-management" element={<RiskManagementCalculator />} />
+          <Route path="/daily-profiler" element={<TradingSystems />} />
+          <Route path="/performance-tracker" element={<TradingPerformanceTracker />} />
         </Routes>
       </div>
     </Router>
