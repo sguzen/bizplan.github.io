@@ -8,8 +8,9 @@ import TradingSystems from './components/trading_systems';
 import TradingPerformanceTracker from './components/performance_tracker';
 
 function App() {
+     const basename = process.env.PUBLIC_URL;
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
