@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bizplan.github.io/static/css/main.af7e7a18.css",
-    "main.js": "/bizplan.github.io/static/js/main.d531c017.js",
+    "main.css": "/bizplan.github.io/static/css/main.fa494741.css",
+    "main.js": "/bizplan.github.io/static/js/main.188d8d0a.js",
     "static/js/453.f678ca6a.chunk.js": "/bizplan.github.io/static/js/453.f678ca6a.chunk.js",
     "index.html": "/bizplan.github.io/index.html",
-    "main.af7e7a18.css.map": "/bizplan.github.io/static/css/main.af7e7a18.css.map",
-    "main.d531c017.js.map": "/bizplan.github.io/static/js/main.d531c017.js.map",
+    "main.fa494741.css.map": "/bizplan.github.io/static/css/main.fa494741.css.map",
+    "main.188d8d0a.js.map": "/bizplan.github.io/static/js/main.188d8d0a.js.map",
     "453.f678ca6a.chunk.js.map": "/bizplan.github.io/static/js/453.f678ca6a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.af7e7a18.css",
-    "static/js/main.d531c017.js"
+    "static/css/main.fa494741.css",
+    "static/js/main.188d8d0a.js"
   ]
 }
