@@ -9,10 +9,9 @@ import TradingPerformanceTracker from './components/performance_tracker';
 
 function App() {
   // This will be "/bizplan.github.io" in production and "/" in development
-  const basename = process.env.PUBLIC_URL;
   
   return (
-    <Router basename={basename}>
+    <Router>
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
