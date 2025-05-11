@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bizplan.github.io/static/css/main.af7e7a18.css",
+    "main.js": "/bizplan.github.io/static/js/main.d531c017.js",
+    "static/js/453.f678ca6a.chunk.js": "/bizplan.github.io/static/js/453.f678ca6a.chunk.js",
+    "index.html": "/bizplan.github.io/index.html",
+    "main.af7e7a18.css.map": "/bizplan.github.io/static/css/main.af7e7a18.css.map",
+    "main.d531c017.js.map": "/bizplan.github.io/static/js/main.d531c017.js.map",
+    "453.f678ca6a.chunk.js.map": "/bizplan.github.io/static/js/453.f678ca6a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af7e7a18.css",
+    "static/js/main.d531c017.js"
+  ]
+}
